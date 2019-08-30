@@ -1,5 +1,3 @@
-
-
 #Section 1.3, Table 1.3 APHASIA Bar Plot
 APHASIA<-read.table("C:/Users/APHASIA.txt")
 counts <- table(APHASIA)

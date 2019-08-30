@@ -6,12 +6,10 @@ Probability &amp; Statistics II · Fall Semester 2019
 #Section 1.3, Table 1.3 APHASIA Bar Plot
 APHASIA<-read.table("C:/Users/APHASIA.txt")
 counts <- table(APHASIA)
-barplot(counts, main="Frequency",
-        xlab="Type")
+barplot(counts, main="Frequency", xlab="Type")
 
 
 #Example 1.12
-
 xdata <- c(229, 255, 280, 203, 229)
 n<- length(xdata)
 xbar <- mean(xdata)
@@ -46,6 +44,7 @@ y_hat = -0.1+0.7*x
 plot(x,y, ylim=c(0,5))
 lines(x,y_hat)
 sigma(fit)
+
 
 #Example 1
 x=c(1,2,3,4,5)
