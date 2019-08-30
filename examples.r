@@ -1,8 +1,5 @@
-# STAT3038
-Probability &amp; Statistics II · Fall Semester 2019
 
-## R Examples
-``` R
+
 #Section 1.3, Table 1.3 APHASIA Bar Plot
 APHASIA<-read.table("C:/Users/APHASIA.txt")
 counts <- table(APHASIA)
@@ -62,4 +59,3 @@ plot(DataTamp$Market_Val,DataTamp$Sale_Price)
 fit2<- lm(DataTamp$Sale_Price ~ DataTamp$Market_Val)
 summary(fit2)
 lines(DataTamp$Market_Val,fit2$fitted.values,)
-```
