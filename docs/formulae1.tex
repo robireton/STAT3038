@@ -1,0 +1,51 @@
+\documentclass[12pt, landscape]{article}
+\usepackage[top=1.0in, bottom=1.0in, left=0.5in, right=0.5in]{geometry}
+\usepackage{amssymb, amsmath, unicode-math}
+\usepackage{fontspec, fancyhdr, setspace, multicol, textpos}
+
+\setmainfont{EB Garamond}
+\pagestyle{fancy}
+\setlength\headheight{36pt}
+\setlength\headwidth{10in}
+\setlength{\TPHorizModule}{1pt}
+\setlength{\TPVertModule}{1pt}
+\fancyhf{}
+\lhead{\textsc{stat3038\\fall 2019}}
+\chead{\textsc{formula sheet \#1}}
+\rhead{\textsc{rob ireton\\m04368769}}
+\renewcommand{\baselinestretch}{2.67} 
+
+\begin{document}
+\begin{multicols}{2}
+\setlength{\abovedisplayskip}{0pt}
+\setlength{\belowdisplayskip}{0pt}
+\setlength{\abovedisplayshortskip}{0pt}
+\setlength{\belowdisplayshortskip}{0pt}
+\begin{align*}
+    y &= \beta_0 + \beta_1 x + \epsilon &\text{simple linear model} \\
+    SS_{xy} &= \sum{xy} - n \bar{x} \bar{y} &\text{“rise” of sample}\\
+    SS_{xx} &= \sum{x^2} - n \bar{x}^2 &\text{“run” of sample (variation in }x\text{)} \\
+    SS_{yy} &= \sum{y^2} - n \bar{y}^2 &\text{variation in }y\text{ in sample} \\
+    \hat{\beta_1} &= \frac{SS_{xy}}{SS_{xx}}&\text{estimate of coefficient of }x \\
+    \hat{\beta_0} &= \bar{y} - \hat{\beta_1} \bar{x} &\text{estimate of intercept} \\
+    SSE &= SS_{yy} - \hat{\beta_1} SS_{xy} &\text{sum of squares of residuals (errors)}\\
+    s^2 &= \frac{SSE}{n-2} & \text{estimate of variance of error term}\\
+    s &= \sqrt{s^2} &\text{residual standard error} \\
+    s_{\hat{\beta_1}} &= \frac{s}{SS_{xx}} &\text{standard error of } \hat{\beta_1} \text{ coefficient of }x
+\end{align*}
+
+\vfill\null
+\columnbreak
+
+\begin{align*}
+    r &= \frac{SS_{xy}}{\sqrt{SS_{xx} SS_{yy}}} & \text{correlation coefficient}\\
+    r^2 &= \frac{SS_{yy} - SSE}{SS_{yy}} & \text{coefficient of determination}\\
+    s_{\hat{y}} &= s \sqrt{\frac{1}{n} + \frac{(x_p - \bar{x})^2}{SS_{xx}}} & \text{se of estimate of mean of } y \text{ at } x = x_p\\
+    s_{y-\hat{y}} &= s \sqrt{1 + \frac{1}{n} + \frac{(x_p - \bar{x})^2}{SS_{xx}}} & \text{se of predicted value of } y \text{ at } x = x_p\\
+    t_c &= \frac{x - x_0}{s_x} & \text{test statistic for } x\\
+    &x \pm t_{\alpha / 2} s_x & 1-\alpha \text{ confidence interval for } x\\
+    &y-\Tilde{y} & \text{residual (observed } - \text{ predicted)}
+\end{align*}
+
+\end{multicols}
+\end{document}

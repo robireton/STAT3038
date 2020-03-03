@@ -1,0 +1,52 @@
+\documentclass[12pt, landscape]{article}
+\usepackage[top=1.0in, bottom=1.0in, left=0.5in, right=0.5in]{geometry}
+\usepackage{amssymb, amsmath, unicode-math}
+\usepackage{fontspec, fancyhdr, setspace, multicol, textpos}
+
+\setmainfont{EB Garamond}
+\pagestyle{fancy}
+\setlength\headheight{36pt}
+\setlength\headwidth{10in}
+\setlength{\TPHorizModule}{1pt}
+\setlength{\TPVertModule}{1pt}
+\fancyhf{}
+\lhead{\textsc{stat3038\\fall 2019}}
+\chead{\textsc{formula sheet \#3}}
+\rhead{\textsc{rob ireton\\m04368769}}
+\renewcommand{\baselinestretch}{2.67} 
+
+\begin{document}
+\begin{multicols}{2}
+\setlength{\abovedisplayskip}{0pt}
+\setlength{\belowdisplayskip}{0pt}
+\setlength{\abovedisplayshortskip}{0pt}
+\setlength{\belowdisplayshortskip}{0pt}
+\begin{align*}
+    \hat{y} &= \hat{\beta}_0 + \beta_1 x_1 + \dotsm + \beta_k x_k &\text{fitted MR model} \\
+    e_i &= y_i - \hat{y}_i &\text{residual} \\
+    SSE &= \sum{e_i^2} &\text{sum of squares of errors} \\
+    MSE &= \frac{SSE}{n - k - 1} &\text{mean squared error} \\
+    s &= \sqrt{MSE} &\text{standard error, estimate of }\sigma \\
+    F &= \frac{(SS_{yy} - SSE) / k}{SSE / (n - k - 1)} &\text{utility test statistic} \\
+      &= \frac{SS(model)/k}{SSE / (n - k - 1)} &\text{d.f. } = (k, n - k - 1) \\
+      &= \frac{MS(model)}{MSE} & p = P(f > F) \\
+    R^2 &= 1 - \frac{SSE}{SS_{yy}} &\text{coeff. of mult. det.} \\
+        &= \frac{SS_{yy}-SSE}{SS_{yy}} \\
+        &= \frac{SS(model)}{SS_{yy}} & SS(model) = SS_{yy} - SSE\\
+\end{align*}
+
+\begin{align*}
+    R_a^2 &= 1 - \frac{n-1}{n-k-1} \frac{SSE}{SS_{yy}} \\
+          &= 1 - \frac{n-1}{n-k-1} (1 - R^2) \\
+    y &= \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_1 x_2 + \epsilon \\
+    \Delta \bar{y}_{x_1} &= \beta_1 + \beta_3 x_2 \\
+    \Delta \bar{y}_{x_2} &= \beta_2 + \beta_3 x_1 \\
+    \\
+    F &= \frac{(SSE_R - SSE_C)/(k_C - k_R)}{MSE_C} \\
+      &= \frac{(SSE_R - SSE_C)/(k_C - k_R)}{SSE_C/(n-(k_C+1))}\\
+      &= \frac{(MS(model)_C - MS(model)_R)/(k_C - k_R)}{MSE_C}\\
+    \text{d.f.} &= (k_C - k_R, n-(k_C+1))
+\end{align*}
+
+\end{multicols}
+\end{document}

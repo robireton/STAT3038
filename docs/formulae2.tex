@@ -1,0 +1,83 @@
+\documentclass[12pt, landscape]{article}
+\usepackage[top=1.0in, bottom=1.0in, left=0.5in, right=0.5in]{geometry}
+\usepackage{amssymb, amsmath, unicode-math}
+\usepackage{fontspec, fancyhdr, setspace, multicol, textpos}
+
+\setmainfont{EB Garamond}
+\pagestyle{fancy}
+\setlength\headheight{36pt}
+\setlength\headwidth{10in}
+\setlength{\TPHorizModule}{1pt}
+\setlength{\TPVertModule}{1pt}
+\fancyhf{}
+\lhead{\textsc{stat3038\\fall 2019}}
+\chead{\textsc{formula sheet \#2}}
+\rhead{\textsc{rob ireton\\m04368769}}
+\renewcommand{\baselinestretch}{2.67} 
+
+\begin{document}
+\begin{multicols}{2}
+\setlength{\abovedisplayskip}{0pt}
+\setlength{\belowdisplayskip}{0pt}
+\setlength{\abovedisplayshortskip}{0pt}
+\setlength{\belowdisplayshortskip}{0pt}
+\begin{align*}
+    y &= \beta_0 + \beta_1 x + \epsilon &\text{simple linear model} \\
+    SS_{xy} &= \sum{xy} - n \bar{x} \bar{y} &\text{“rise” of sample}\\
+    SS_{xx} &= \sum{x^2} - n \bar{x}^2 &\text{“run” of sample (variation in }x\text{)} \\
+    SS_{yy} &= \sum{y^2} - n \bar{y}^2 &\text{variation in }y\text{ in sample} \\
+    \hat{\beta}_1 &= \frac{SS_{xy}}{SS_{xx}}&\text{estimate of coefficient of }x \\
+    \hat{\beta}_0 &= \bar{y} - \hat{\beta}_1 \bar{x} &\text{estimate of intercept} \\
+    SSE &= SS_{yy} - \hat{\beta}_1 SS_{xy} &\text{sum of squares of residuals (errors)}\\
+    s^2 &= \frac{SSE}{n-2} & \text{estimate of variance of error term}\\
+    s &= \sqrt{s^2} &\text{residual standard error} \\
+    s_{\hat{\beta_1}} &= \frac{s}{SS_{xx}} &\text{standard error of } \hat{\beta}_1 \text{ coefficient of }x
+\end{align*}
+
+\vfill\null
+\columnbreak
+
+\begin{align*}
+    r &= \frac{SS_{xy}}{\sqrt{SS_{xx} SS_{yy}}} & \text{correlation coefficient}\\
+    r^2 &= \frac{SS_{yy} - SSE}{SS_{yy}} & \text{coefficient of determination}\\
+    s_{\hat{y}} &= s \sqrt{\frac{1}{n} + \frac{(x_p - \bar{x})^2}{SS_{xx}}} & \text{se of estimate of mean of } y \text{ at } x = x_p\\
+    s_{y-\hat{y}} &= s \sqrt{1 + \frac{1}{n} + \frac{(x_p - \bar{x})^2}{SS_{xx}}} & \text{se of predicted value of } y \text{ at } x = x_p\\
+    t_c &= \frac{x - x_0}{s_x} & \text{test statistic for } x\\
+    &x \pm t_{\alpha / 2} s_x & 1-\alpha \text{ confidence interval for } x\\
+    y &= \beta_0 + \beta_1 x_1 + \dotsm + \beta_k x_k + \epsilon &\text{multiple regression model} \\
+    \hat{y} &= \hat{\beta}_0 + \beta_1 x_1 + \dotsm + \beta_k x_k &\text{fitted model} \\
+    e_i &= y_i - \hat{y}_i &\text{residual} \\
+    SSE &= \sum{e_i^2} &\text{sum of squares of errors}
+\end{align*}
+
+% \vfill\null
+% \columnbreak
+
+\begin{align*}
+    MSE &= \frac{SSE}{n - k - 1} &\text{mean squared error} \\
+    s &= \sqrt{MSE} &\text{standard error, estimate of }\sigma \\
+    F &= \frac{(SS_{yy} - SSE) / k}{SSE / (n - k - 1)} &\text{utility test statistic} \\
+      &= \frac{SS(model)/k}{SSE / (n - k - 1)} &\text{d.f. } = (k, n - k - 1) \\
+      &= \frac{MS(model)}{MSE} & p = P(f > F) \\
+    R^2 &= 1 - \frac{SSE}{SS_{yy}} &\text{coefficient of multiple determination} \\
+        &= \frac{SS_{yy}-SSE}{SS_{yy}} \\
+        &= \frac{SS(model)}{SS_{yy}} & SS(model) = SS_{yy} - SSE\\
+    R_a^2 &= 1 - \frac{n-1}{n-(k+1)} \frac{SSE}{SS_{yy}} &\text{adjusted} \\
+          &= 1 - \frac{n-1}{n-(k+1)} (1 - R^2)
+\end{align*}
+
+\vfill\null
+\columnbreak
+
+\begin{align*}
+    y &= \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_1 x_2 + \epsilon \\
+    \Delta \bar{y}_{x_1} &= \beta_1 + \beta_3 x_2 \\
+    \Delta \bar{y}_{x_2} &= \beta_2 + \beta_3 x_1 \\
+    \\
+    F &= \frac{(SSE_R - SSE_C)/(k_C - k_R)}{MSE_C} \\
+      &= \frac{(SSE_R - SSE_C)/(k_C - k_R)}{SSE_C/(n-(k_C+1))}\\
+    \text{d.f.} &= (k_C - k_R, n-(k_C+1))
+\end{align*}
+
+\end{multicols}
+\end{document}
